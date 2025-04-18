@@ -1,5 +1,6 @@
 package org.example.bootrestex.service;
 
+import org.apache.coyote.BadRequestException;
 import org.example.bootrestex.model.domain.Animal;
 
 import java.util.List;
@@ -7,5 +8,6 @@ import java.util.List;
 public interface AnimalService {
     List<Animal> findAll();
 
-    Animal save(Animal animal);
+
+    void create(Animal animal) throws BadRequestException;
 }

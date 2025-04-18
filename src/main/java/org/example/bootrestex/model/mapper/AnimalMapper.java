@@ -15,6 +15,7 @@ public interface AnimalMapper {
     @Select("SELECT * FROM animal")
     List<Animal> findAll();
 
-    @Insert("INSERT INTO animal (name,description,stroy) VALUES (#{name}, #{description}, #{story})")
+    @Insert("INSERT INTO animal (name, description, story) VALUES (#{name}, #{description}, #{story})")
     void insert(Animal animal);
 }
+
