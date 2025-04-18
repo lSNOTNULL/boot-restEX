@@ -1,0 +1,25 @@
+package org.example.bootrestex.service;
+
+import org.example.bootrestex.model.domain.Animal;
+import org.example.bootrestex.model.mapper.AnimalMapper;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class AnimalServiceImpl implements AnimalService {
+    AnimalMapper animalMapper;
+    public AnimalServiceImpl(AnimalMapper animalMapper) {
+        this.animalMapper = animalMapper;
+    }
+
+    @Override
+    public List<Animal> findAll() {
+        return animalMapper.findAll();
+    }
+
+    @Override
+    public Animal save(Animal animal) {
+        return null;
+    }
+}

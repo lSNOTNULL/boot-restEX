@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>생명체 만들기</title>
+    <style>
+        @font-face {
+            font-family: 'Cafe24Ohsquare';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/Cafe24Ohsquare.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Cafe24Ohsquare,sans-serif;
+            padding: 1rem;
+        }
+        section {
+            max-width: 576px;
+
+        }
+        #animal-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            padding: 1rem;
+        }
+        input, textarea {
+            width: 100%;
+            resize: none;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>당신만의 생명체를 만들어봅시다</h1>
+    <section id="animal-form-container">
+        <form id="animal-form">
+            <label> 이름 : <input id="animal-name"></label>
+            <label> 설명 : <textarea id="animal-desc"></textarea></label>
+            <button>생성</button>
+        </form>
+    </section>
+    <section id="animal-list">
+
+    </section>
+    <script>
+
+    </script>
+</body>
+</html>
