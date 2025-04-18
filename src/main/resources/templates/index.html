@@ -60,14 +60,16 @@
             const description = document.querySelector('#animal-desc').value;
             console.log("animalName", name);
             console.log("animalDesc", description);
+
+            // 서버로 데이터 전송(REST API POST 요청)
             const response = await fetch('/api/animals', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({
+                body: JSON.stringify({ // 요청 본문(body)에 담을 데이터 설정
                     name, description,
-                })
+                }) // stringify를 통해 JSON 형식의 문자열로 변환(직렬화)
             });
             console.log(response.status);
             if (response.status === 400) {
@@ -76,15 +78,23 @@
         });
 
         // 데이터 로딩
+        // 웹 페이지의 DOM (문서 객체 모델) 로딩이 완료되면 아래 코드를 실행.
+        // 즉, HTML 구조가 다 준비되면 데이터를 가져와서 화면에 표시하겠다는 뜻.
         document.addEventListener('DOMContentLoaded', async () => {
+            // animal-list id를 가진 section에 서버로부터 받아온 데이터를 표시할 것.
             const animalList = document.querySelector('#animal-list');
             const response = await fetch('/api/animals', {
-                // method: 'GET',
+                // method: 'GET', 명시하지 않아도 기본적으로 GET이다.
                 headers: {
                     'Content-Type': 'application/json',
                 }
             });
-            animalList.innerHTML = JSON.stringify(await response.json());
+            // response값을 역직렬화 하여 받아오고
+            // await를 사용하여 변환 작업이 완료될 때까지 기다립니다.
+            const jsonData = await response.json();
+
+            // HTML 요소의 내용으로 문자열만 넣을 수 있기 때문에, JSON 문자열로 최종 변환(직렬화)하여 화면에 표시
+            animalList.innerHTML = JSON.stringify(jsonData);
         })
 
     </script>
